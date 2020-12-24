@@ -1549,7 +1549,7 @@ class RawSQLMonad(Monad):
         translator = monad.translator
         expr = item.getsql()
         if len(expr) == 1: expr = expr[0]
-        elif translator.row_value_syntax == True: expr = ['ROW'] + expr
+        elif translator.row_value_syntax is True: expr = ['ROW'] + expr
         else: throw(TranslationError,
                     '%s database provider does not support tuples. Got: {EXPR} ' % translator.dialect)
         op = 'NOT_IN' if not_in else 'IN'
