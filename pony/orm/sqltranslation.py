@@ -559,7 +559,7 @@ class SQLTranslator(ASTTranslator):
                 prev_translator.left_join = translator.left_join
                 prev_translator.optimize = translator.optimize
                 prev_translator.namespace_stack = [
-                    {name: expr for name, expr in izip(names, prev_translator.expr_monads)}
+                    dict(izip(names, prev_translator.expr_monads))
                 ]
                 prev_translator.limit, prev_translator.offset = combine_limit_and_offset(
                     prev_translator.limit, prev_translator.offset, prev_limit, prev_offset)
@@ -892,7 +892,7 @@ class SQLTranslator(ASTTranslator):
 
         if not original_names:
             assert argnames
-            namespace = {name: monad for name, monad in izip(argnames, translator.expr_monads)}
+            namespace = dict(izip(argnames, translator.expr_monads))
         elif argnames:
             namespace = {name: translator.namespace[name] for name in argnames}
         else:
