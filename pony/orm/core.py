@@ -2819,7 +2819,7 @@ class Set(Collection):
         elif obj is not None: entity = obj.__class__
         else: entity = attr.entity
         if not reverse: throw(NotImplementedError)
-        if isinstance(val, reverse.entity): items = set((val,))
+        if isinstance(val, reverse.entity): items = {val,}
         else:
             rentity = reverse.entity
             try: items = set(val)
