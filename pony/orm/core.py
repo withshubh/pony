@@ -4263,7 +4263,7 @@ class EntityMeta(type):
         where_list = [ 'WHERE' ]
 
         discr_attr = entity._discriminator_attr_
-        if discr_attr and query_attrs.get(discr_attr) != False:
+        if discr_attr and query_attrs.get(discr_attr) is False:
             discr_criteria = entity._construct_discriminator_criteria_()
             if discr_criteria: where_list.append(discr_criteria)
 
