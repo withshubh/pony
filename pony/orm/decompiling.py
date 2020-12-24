@@ -732,7 +732,6 @@ test_lines = """
 ##    (a and b or c and d if x and y or p and q else r and n or m and k for i in T if (A and B or C and D if X and Y or P and Q else R and N or M and K))
 
 def test():
-    import sys
     if sys.version[:3] > '2.4': outmost_iterable_name = '.0'
     else: outmost_iterable_name = '[outmost-iterable]'
     import dis
