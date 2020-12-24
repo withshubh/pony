@@ -13,9 +13,9 @@ from contextlib import contextmanager, closing
 from pony.utils import cached_property, class_property
 
 if not PY2:
-    from contextlib import contextmanager, ContextDecorator
+    from contextlib import ContextDecorator
 else:
-    from contextlib2 import contextmanager, ContextDecorator
+    from contextlib2 import ContextDecorator
 
 import unittest
 
